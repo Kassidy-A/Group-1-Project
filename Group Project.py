@@ -1,8 +1,10 @@
-
 #GROUP PROJECT
 
-# Latex Project
-###### With title, date, members, an intro
+#Group 1:
+#Kassidy Adams
+#Cruz Fuller
+#Gamarious Isaac
+#Madison Phillips
 
 ###############################################################################
 
@@ -15,10 +17,8 @@ import matplotlib.pyplot as plt
 ###############################################################################
 
 #Step 2: Load and Clean the Data
-#which file should we choose
 
-df = pd.read_csv()
-
+df = pd.read_csv("C:/Users/kassi/OneDrive/Desktop/Programming/drug-use-by-age.csv")
 
 df.isnull().sum()      #checks for missing values
 df.dropna(inplace=True)     #drops missing values
@@ -29,8 +29,9 @@ df.drop_duplicates(inplace=True)
 
 # Step 3: Summary Stats, Descriptive Stats, and Correlation
 
-#one line of code 
-#df.describe()
+summary_stats = df.describe()
+print(summary_stats)
+
 #what do these stats tell you?
 
 ###############################################################################
