@@ -59,42 +59,41 @@ print(summary_stats)
 #df.describe()
 #what do these stats tell you?
 
-###############################################################################
+# central tendency
 
-# Step 4: Analysis
+mean_values = df.mean(numeric_only = True)
+median_value = df.median(numeric_only = True)
+mode_value = df.mode(numeric_only = True)
 
-#what info you want to show from your group
+# description
+std_value = df.std(numeric_only = True)
+var_value = df.var(numeric_only = True)
+range_value = df.max(numeric_only = True) - df.min(numeric_only = True)
+iqr_value = df.quantile(0.75) - df.quantile(0.25)
 
-#stats one column, depending on the data and what it means???????
+# shapes
 
-###############################################################################
-
-# Step 5: Visualization
-
-    #Choose 1 or 2 (depends on the data)
-#Histogram
-#Boxplot
-#Bar Chart
-
-###############################################################################
-
-# Step 6: Linear Regression Model
-
-#line of best fit
-
-###############################################################################
-
-# Step 7: Other Analysis Ideas:
-
-#KMeans, classification, z-score, IQR.
-    
+Skewness = df.skew(numeric_only = True)
+kurtosis_vals = df.kurtosis(numeric_only  = True)
 
 
+Stats.round(2) = pd.DataFrame({
+    "Mean ": mean_value,
+    "Median": median_value,
+    "Mode": mode_value,
+    "Standard Deviation": std_value,
+    "Variance": var_value,
+    "Range": range_value,
+    "IQR": iqr_value,
+    "Skewness": Skewness,
+    "Kurtosis": Kurtosis_vals
+})
+
+# Display
+print("Descriptive Statistics: ")
+print(Stats.round(3))
 
 
-
-
-
-
-
-
+correlations = df.corr(numeric_only = True)
+print("Correlation Matrix")
+print(correlation)
