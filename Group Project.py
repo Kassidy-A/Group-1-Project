@@ -15,6 +15,7 @@ import matplotlib.pyplot as plt
 ###############################################################################
 
 #Step 2: Load and Clean the Data
+#which file should we choose
 
 df = pd.read_csv()
 
