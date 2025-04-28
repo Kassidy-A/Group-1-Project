@@ -16,7 +16,7 @@ import matplotlib.pyplot as plt
 
 #Step 2: Load and Clean the Data
 ## choose csv from canvas
-df = pd.read_csv()
+df = pd.read_csv("C:/Users/12516/Downloads/airline-safety.csv")
 
 
 # Displaying the first few rows
