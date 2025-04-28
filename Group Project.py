@@ -39,7 +39,7 @@ df.dropna(inplace=True)     #drops missing values
 
 duplicate_row = df.duplicated().sum       #checks for duplicate data
 print(f"Number of duplication row {duplicate_row}")
-if duplicate_row > 0
+if duplicate_row > 0:
     df = df.drop_duplication()
 df.drop_duplicates(inplace=True)  
 
