@@ -15,7 +15,7 @@ import matplotlib.pyplot as plt
 ###############################################################################
 
 #Step 2: Load and Clean the Data
-
+## choose csv from canvas
 df = pd.read_csv()
 
 
