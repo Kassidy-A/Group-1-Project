@@ -97,3 +97,6 @@ print(Stats.round(3))
 correlations = df.corr(numeric_only = True)
 print("Correlation Matrix")
 print(correlation)
+
+
+# liner regression
