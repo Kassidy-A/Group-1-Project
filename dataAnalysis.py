@@ -62,36 +62,53 @@ print("Correlation Matrix")
 print(corrleations)
 
 
-# Plot sample sizes alongside usage rates
-plt.figure(figsize=(12,4))
-plt.bar(df['age_min'], df['n'], color='skyblue', alpha=0.7, label='Sample size (n)')
-plt.plot(df['age_min'], df['alcohol_use']*100, 'r-', label='Alcohol use (%)')
-plt.legend()
-plt.title('Survey Sample Sizes vs. Alcohol Use Rates')
-plt.xticks(rotation=45)
-plt.show()
-
+# 
 plt.figure(figsize=(10, 6))
 plt.hist(df['alcohol_use'], bins=10, color='skyblue', edgecolor='black')
 
-plt.title('Distribution of Alcohol Use Across Age Groups', fontsize=14)
-plt.xlabel('Percentage Using Alcohol (%)', fontsize=12)
-plt.ylabel('Number of Age Groups', fontsize=12)
+plt.title('Distribution of Alcohol Use Across Age Groups')
+plt.xlabel('Percentage Using Alcohol (%)')
+plt.ylabel('Number of Age Groups')
 plt.grid(axis='y', alpha=0.4)
 plt.show()
 
+plt.figure(figsize=(10, 6))
+plt.hist(df['alcohol_frequency'], bins=10, color='purple', edgecolor='black')
 
-# Choose one example frequency column to plot
-col_to_plot = 'alcohol_frequency'
-
-# Create a boxplot of frequency by age group
-plt.figure(figsize=(12, 6))
-plt.boxplot(x='age_min', y=col_to_plot, data=df)
-plt.title(f'Boxplot of {col_to_plot} by Age Group')
-plt.xlabel('Age (Minimum of Group)')
-plt.ylabel('Frequency')
-plt.xticks(rotation=45)
-plt.tight_layout()
+plt.title('Distribution of Alcohol Use Across Age Groups')
+plt.xlabel('Percentage Using Alcohol (%)')
+plt.ylabel('Number of Age Groups')
+plt.grid()
 plt.show()
 
 
+# Choose column to plot
+col = 'alcohol_frequency'
+
+# Prepare data: list of alcohol_frequency values per age group
+age_groups = sorted(df['age_min'].dropna().unique())
+data_by_age = [df[df['age_min'] == age][col].dropna() for age in age_groups]
+
+# Create boxplot
+plt.figure(figsize=(14, 6))
+plt.boxplot(data_by_age, labels=age_groups)
+plt.title('Alcohol Frequency by Age Group')
+plt.xlabel('Age (Minimum of Age Range)')
+plt.ylabel('Alcohol Frequency')
+plt.grid()
+plt.show()
+
+# histrogram 
+plt.figure(figsize=(12, 6))
+plt.hist([df['alcohol_use'], df['marijuana_use']], 
+         bins=8, 
+         color=['royalblue', 'limegreen'], 
+         label=['Alcohol', 'Marijuana'],
+         edgecolor='black')
+
+plt.title('Comparison of Alcohol vs. Marijuana Use Distributions')
+plt.xlabel('Percentage Using Substance (%)')
+plt.ylabel('Number of Age Groups')
+plt.legend()
+plt.grid(False)
+plt.show()
